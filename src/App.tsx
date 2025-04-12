@@ -5,7 +5,7 @@ import { ModeToggle } from "./components/mode-toggle";
 
 function App() {
    return (
-      <ThemeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
          <Button>Hello</Button>
          <ModeToggle />
       </ThemeProvider>
