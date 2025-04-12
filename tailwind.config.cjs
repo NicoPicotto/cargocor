@@ -6,6 +6,11 @@ module.exports = {
    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
    theme: {
       extend: {
+         colors: {
+            secundario: "hsl(var(--secundario))",
+            terciario: "hsl(var(--terciario))",
+            complementario: "hsl(var(--complementario))",
+         },
          borderRadius: {
             lg: "var(--radius)",
             md: "calc(var(--radius) - 2px)",
