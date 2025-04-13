@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Phone, MessageCircle } from "lucide-react";
 const Navbar = () => {
    return (
-      <nav className="bg-background sticky top-0 z-50">
+      <nav className="bg-background sticky top-0 z-50 shadow-md">
          <Container>
             <div className="flex justify-between items-center w-full h-16 ">
                <div>
