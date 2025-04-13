@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeView from "./views/home";
 import Navbar from "./components/Navbar";
 import ProductsView from "./views/products";
+import Footer from "./components/Footer";
+import ContactView from "./views/contact";
+import AboutView from "./views/about";
 
 function App() {
    return (
@@ -12,8 +15,11 @@ function App() {
             <Navbar />
             <Routes>
                <Route path="/" element={<HomeView />} />
-               <Route path="/products" element={<ProductsView />} />
+               <Route path="/productos" element={<ProductsView />} />
+               <Route path="/contacto" element={<ContactView />} />
+               <Route path="/nosotros" element={<AboutView />} />
             </Routes>
+            <Footer />
          </Router>
       </ThemeProvider>
    );
