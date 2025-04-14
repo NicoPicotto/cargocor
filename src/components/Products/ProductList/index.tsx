@@ -1,6 +1,8 @@
 // src/components/ProductsData.tsx
 import { useState, useEffect } from "react";
 import { processImageUrls } from "@/utils/imageUtils";
+import Container from "@/components/Container";
+import ProductCard from "./ProductCard";
 
 // Interfaz para los productos
 interface Product {
@@ -11,15 +13,20 @@ interface Product {
    categoria: string;
 }
 
+// Tipo para los productos agrupados por categoría
+type ProductsByCategory = {
+   [key: string]: Product[];
+};
+
 function ProductsData() {
    const [products, setProducts] = useState<Product[]>([]);
+   const [productsByCategory, setProductsByCategory] =
+      useState<ProductsByCategory>({});
    const [loading, setLoading] = useState<boolean>(true);
    const [error, setError] = useState<string | null>(null);
 
    useEffect(() => {
-      // Función para obtener datos de Google Sheets
       const fetchProductsData = async () => {
-         // Usar las variables de entorno de Vite
          const API_KEY = import.meta.env.VITE_API_KEY;
          const SHEET_ID = import.meta.env.VITE_SHEET_ID;
          const RANGE = "A2:F";
@@ -42,7 +49,6 @@ function ProductsData() {
             }
 
             const data = await response.json();
-            console.log("Datos crudos de la API:", data);
 
             if (data.values && data.values.length > 0) {
                // Transforma los datos a un formato más utilizable
@@ -52,15 +58,29 @@ function ProductsData() {
                      nombre: row[1] || "",
                      descripcion: row[2] || "",
                      imageUrls: processImageUrls(row[3] || ""),
-                     categoria: row[4] || "",
+                     categoria: row[4] || "Sin categoría", // Valor por defecto
                   })
                );
 
-               console.log("Productos formateados:", formattedProducts);
                setProducts(formattedProducts);
+
+               // Agrupar productos por categoría
+               const grouped = formattedProducts.reduce(
+                  (acc: ProductsByCategory, product) => {
+                     const category = product.categoria;
+                     if (!acc[category]) {
+                        acc[category] = [];
+                     }
+                     acc[category].push(product);
+                     return acc;
+                  },
+                  {}
+               );
+
+               setProductsByCategory(grouped);
             } else {
-               console.log("No se encontraron datos en la hoja");
                setProducts([]);
+               setProductsByCategory({});
             }
          } catch (err) {
             console.error("Error al obtener datos:", err);
@@ -74,55 +94,30 @@ function ProductsData() {
    }, []);
 
    return (
-      <div>
-         {loading && <p>Cargando productos...</p>}
-         {error && <p>Error: {error}</p>}
-         {!loading && !error && (
-            <div>
-               <p>Productos cargados: {products.length}</p>
-               <div>
-                  {products.map((product) => (
-                     <div
-                        key={product.id}
-                        style={{
-                           margin: "20px 0",
-                           padding: "10px",
-                           border: "1px solid #ddd",
-                        }}
-                     >
-                        <h3>{product.nombre}</h3>
-                        <p>{product.descripcion}</p>
-                        <p>
-                           <strong>Categoría:</strong> {product.categoria}
-                        </p>
-                        <p>
-                           <strong>Imágenes:</strong>
-                        </p>
-                        <div
-                           style={{
-                              display: "flex",
-                              flexWrap: "wrap",
-                              gap: "10px",
-                           }}
-                        >
-                           {product.imageUrls.map((url, index) => (
-                              <img
-                                 key={index}
-                                 src={url}
-                                 alt={`${product.nombre} - imagen ${index + 1}`}
-                                 style={{
-                                    maxWidth: "200px",
-                                    maxHeight: "200px",
-                                 }}
-                              />
-                           ))}
+      <section className="py-10">
+         <Container>
+            {loading && <p>Cargando productos...</p>}
+            {error && <p>Error: {error}</p>}
+            {!loading && !error && (
+               <>
+                  {Object.entries(productsByCategory).map(
+                     ([categoria, productos]) => (
+                        <div key={categoria} className="mb-12">
+                           <h3 className="text-primary font-bold text-3xl border-l-[4px] border-primary pl-4 mb-6">
+                              {categoria}
+                           </h3>
+                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                              {productos.map((product) => (
+                                <ProductCard id={product.id} nombre={product.nombre} descripcion={product.descripcion} imageUrls={product.imageUrls} />
+                              ))}
+                           </div>
                         </div>
-                     </div>
-                  ))}
-               </div>
-            </div>
-         )}
-      </div>
+                     )
+                  )}
+               </>
+            )}
+         </Container>
+      </section>
    );
 }
 

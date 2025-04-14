@@ -1,9 +1,10 @@
+import Hero from "@/components/Products/Hero";
 import ProductsData from "@/components/Products/ProductList";
 
 const ProductsView = () => {
    return (
       <div>
-         <h1>Productos</h1>
+         <Hero />
          <ProductsData />
       </div>
    );

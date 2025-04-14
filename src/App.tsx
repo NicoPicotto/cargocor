@@ -7,6 +7,7 @@ import ProductsView from "./views/products";
 import Footer from "./components/Footer";
 import ContactView from "./views/contact";
 import AboutView from "./views/about";
+import ProductView from "./views/product";
 
 function App() {
    return (
@@ -18,6 +19,7 @@ function App() {
                <Route path="/productos" element={<ProductsView />} />
                <Route path="/contacto" element={<ContactView />} />
                <Route path="/nosotros" element={<AboutView />} />
+               <Route path="/producto/:id" element={<ProductView />} />
             </Routes>
             <Footer />
          </Router>
