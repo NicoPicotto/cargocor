@@ -12,8 +12,8 @@ export function convertGoogleDriveUrl(driveUrl: string): string {
 
    if (match && match[1]) {
       const fileId = match[1];
-      // Usar formato de miniaturas que funciona mejor
-      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+      // Agregar el parámetro authuser=0 que resuelve el problema
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000&authuser=0`;
    }
 
    // Si no se puede extraer el ID, devolver la URL original

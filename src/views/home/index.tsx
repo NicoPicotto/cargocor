@@ -7,8 +7,8 @@ const HomeView = () => {
       <div>
          <Hero />
          {/* <FirstCTA /> */}
-         <SecondCTA />
          <CategoryList />
+         <SecondCTA />
       </div>
    );
 };

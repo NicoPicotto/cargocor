@@ -1,5 +1,11 @@
+import ProductDetail from "@/components/Products/ProductDetail";
+
 const ProductView = () => {
-   return <div>Product</div>;
+   return (
+      <div>
+         <ProductDetail />
+      </div>
+   );
 };
 
 export default ProductView;

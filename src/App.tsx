@@ -8,11 +8,13 @@ import Footer from "./components/Footer";
 import ContactView from "./views/contact";
 import AboutView from "./views/about";
 import ProductView from "./views/product";
+import ScrolToTop from "./components/ScrollToTop";
 
 function App() {
    return (
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
          <Router>
+            <ScrolToTop />
             <Navbar />
             <Routes>
                <Route path="/" element={<HomeView />} />

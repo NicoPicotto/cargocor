@@ -7,6 +7,7 @@ interface ProductCardProps {
    nombre: string;
    descripcion: string;
    imageUrls: string[];
+   key: string;
 }
 const ProductCard = ({
    id,
