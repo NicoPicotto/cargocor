@@ -28,7 +28,6 @@ const ProductCard = ({
          )}
          <div className="flex flex-col gap-2 p-4">
             <p className="text-2xl font-bold">{nombre}</p>
-            <p className="text-lg max-w-[30ch]">{descripcion}</p>
             <Link to={`/producto/${id}`} className="text-primary mt-2">
                <Button variant="default" size="lg" className="w-fit group">
                   Ver más

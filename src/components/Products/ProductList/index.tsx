@@ -1,104 +1,29 @@
 // src/components/ProductsData.tsx
-import { useState, useEffect } from "react";
-import { processImageUrls } from "@/utils/imageUtils";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProducts, groupProductsByCategory } from "@/api/products";
 import Container from "@/components/Container";
 import ProductCard from "./ProductCard";
 
-// Interfaz para los productos
-interface Product {
-   id: string;
-   nombre: string;
-   descripcion: string;
-   imageUrls: string[];
-   categoria: string;
-}
-
-// Tipo para los productos agrupados por categoría
-type ProductsByCategory = {
-   [key: string]: Product[];
-};
-
 function ProductsData() {
-   const [products, setProducts] = useState<Product[]>([]);
-   const [productsByCategory, setProductsByCategory] =
-      useState<ProductsByCategory>({});
-   const [loading, setLoading] = useState<boolean>(true);
-   const [error, setError] = useState<string | null>(null);
+   // Usar TanStack Query para obtener y cachear los productos
+   const {
+      data: products = [],
+      isLoading,
+      error,
+   } = useQuery({
+      queryKey: ["products"],
+      queryFn: fetchProducts,
+   });
 
-   useEffect(() => {
-      const fetchProductsData = async () => {
-         const API_KEY = import.meta.env.VITE_API_KEY;
-         const SHEET_ID = import.meta.env.VITE_SHEET_ID;
-         const RANGE = "A2:F";
-
-         if (!API_KEY || !SHEET_ID) {
-            setError("API_KEY o SHEET_ID no configurados en el archivo .env");
-            setLoading(false);
-            return;
-         }
-
-         try {
-            const response = await fetch(
-               `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`
-            );
-
-            if (!response.ok) {
-               throw new Error(
-                  `Error en la respuesta de la API: ${response.status} ${response.statusText}`
-               );
-            }
-
-            const data = await response.json();
-
-            if (data.values && data.values.length > 0) {
-               // Transforma los datos a un formato más utilizable
-               const formattedProducts: Product[] = data.values.map(
-                  (row: any) => ({
-                     id: row[0] || "",
-                     nombre: row[1] || "",
-                     descripcion: row[2] || "",
-                     imageUrls: processImageUrls(row[3] || ""),
-                     categoria: row[4] || "Sin categoría", // Valor por defecto
-                  })
-               );
-
-               setProducts(formattedProducts);
-
-               // Agrupar productos por categoría
-               const grouped = formattedProducts.reduce(
-                  (acc: ProductsByCategory, product) => {
-                     const category = product.categoria;
-                     if (!acc[category]) {
-                        acc[category] = [];
-                     }
-                     acc[category].push(product);
-                     return acc;
-                  },
-                  {}
-               );
-
-               setProductsByCategory(grouped);
-            } else {
-               setProducts([]);
-               setProductsByCategory({});
-            }
-         } catch (err) {
-            console.error("Error al obtener datos:", err);
-            setError(err instanceof Error ? err.message : "Error desconocido");
-         } finally {
-            setLoading(false);
-         }
-      };
-
-      fetchProductsData();
-   }, []);
+   // Agrupar productos por categoría
+   const productsByCategory = groupProductsByCategory(products);
 
    return (
       <section className="py-10">
          <Container>
-            {loading && <p>Cargando productos...</p>}
-            {error && <p>Error: {error}</p>}
-            {!loading && !error && (
+            {isLoading && <p>Cargando productos...</p>}
+            {error && <p>Error: {(error as Error).message}</p>}
+            {!isLoading && !error && (
                <>
                   {Object.entries(productsByCategory).map(
                      ([categoria, productos]) => (
