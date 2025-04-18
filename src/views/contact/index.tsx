@@ -1,7 +1,9 @@
+import Contact from "@/components/Contact";
+
 const ContactView = () => {
    return (
       <div>
-         <h1>Contact</h1>
+         <Contact />
       </div>
    );
 };
