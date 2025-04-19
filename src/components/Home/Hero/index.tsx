@@ -8,7 +8,7 @@ const Hero = () => {
          <div className="flex flex-col justify-center h-[70dvh] overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/20 z-[-1]"></div>
             <img
-               src="/home/hero.jpeg"
+               src="/home/hero.webp"
                alt="Trabajador de industria trasaladando mercadería"
                className="absolute top-0 object-top left-0 w-full h-full object-cover z-[-2]"
             />

@@ -5,28 +5,28 @@ const categories = [
    {
       name: "Slip Sheets",
       description: "Optimizá espacios, reducí costos y potenciá tus cargas.",
-      image: "/home/category1.png",
+      image: "/home/category1.webp",
       url: "/productos#slip-sheets",
    },
    {
       name: "Materiales de embalaje",
       description:
          "Asegurá la integridad de tus productos durante el almacenamiento y envío.",
-      image: "/home/category2.png",
+      image: "/home/category2.webp",
       url: "/productos#materiales-de-embalaje",
    },
    {
       name: "Soluciones de polietileno",
       description:
          "Asegurá la integridad de las mercancías con productos hechos a medida.",
-      image: "/home/category3.png",
+      image: "/home/category3.webp",
       url: "/productos#soluciones-de-polietileno",
    },
    {
       name: "Soluciones de cadena de frío",
       description:
          "Asegurá la calidad y seguridad de los productos sensibles a la temperatura.",
-      image: "/home/category4.png",
+      image: "/home/category4.webp",
       url: "/productos#soluciones-de-cadena-de-frio",
    },
 ];

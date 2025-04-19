@@ -135,7 +135,7 @@ const ProductDetail = () => {
             </div>
             <div className="flex my-10 gap-6 items-center">
                <div className="border border-gray-300 w-full"></div>
-               <img src="/common/logogrande.svg" className="w-12 h-12" />
+               <img src="/common/logogrande.svg" alt="Logo cargocor" className="w-12 h-12" />
                <div className="border border-gray-300 w-full"></div>
             </div>
             {relatedProducts.length > 0 && (

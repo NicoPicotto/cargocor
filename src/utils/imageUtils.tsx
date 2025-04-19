@@ -6,17 +6,14 @@
  * @returns {string} URL convertida para acceso directo
  */
 export function convertGoogleDriveUrl(driveUrl: string): string {
-   // Extraer el ID del archivo usando expresiones regulares
    const regex = /\/d\/([a-zA-Z0-9_-]+)/;
    const match = driveUrl.match(regex);
 
    if (match && match[1]) {
       const fileId = match[1];
-      // Agregar el parámetro authuser=0 que resuelve el problema
       return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000&authuser=0`;
    }
 
-   // Si no se puede extraer el ID, devolver la URL original
    return driveUrl;
 }
 
@@ -28,9 +25,7 @@ export function convertGoogleDriveUrl(driveUrl: string): string {
 export function processImageUrls(imageUrlsString: string): string[] {
    if (!imageUrlsString) return [];
 
-   // Dividir la cadena por comas y eliminar espacios en blanco
    const urls = imageUrlsString.split(",").map((url) => url.trim());
 
-   // Convertir cada URL al formato correcto
    return urls.map((url) => convertGoogleDriveUrl(url));
 }

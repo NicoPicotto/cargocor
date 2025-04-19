@@ -6,7 +6,6 @@ import {
    Drawer,
    DrawerClose,
    DrawerContent,
-   DrawerFooter,
    DrawerTrigger,
 } from "@/components/ui/drawer";
 
@@ -69,17 +68,17 @@ const Navbar = () => {
                <div className="md:hidden">
                   <Drawer>
                      <DrawerTrigger asChild>
-                        <Button variant="ghost" size="icon">
-                           <Menu className="h-6 w-6" />
+                        <Button variant="ghost" size="sm">
+                           <Menu className="h-8 w-8" />
                         </Button>
                      </DrawerTrigger>
                      <DrawerContent>
-                        <div className="p-4 flex flex-col gap-2">
+                        <div className="px-4 pb-4 flex flex-col gap-2">
                            <DrawerClose asChild>
                               <Link to="/nosotros">
                                  <Button
                                     variant="ghost"
-                                    className="w-full justify-start"
+                                    className="w-full border border-1-primary justify-center"
                                  >
                                     Nosotros
                                  </Button>
@@ -89,7 +88,7 @@ const Navbar = () => {
                               <Link to="/productos">
                                  <Button
                                     variant="ghost"
-                                    className="w-full justify-start"
+                                    className="w-full border border-1-primary justify-center"
                                  >
                                     Productos
                                  </Button>
@@ -99,15 +98,15 @@ const Navbar = () => {
                               <Link to="/contacto">
                                  <Button
                                     variant="ghost"
-                                    className="w-full justify-start"
+                                    className="w-full border border-1-primary justify-center"
                                  >
                                     Contacto
                                  </Button>
                               </Link>
                            </DrawerClose>
-                           <div className="h-4"></div>
+                           
                            <DrawerClose asChild>
-                              <Button asChild className="w-full justify-start">
+                              <Button asChild className="w-full justify-center">
                                  <a href="tel:03584388136">
                                     <Phone className="mr-2 h-4 w-4" />
                                     (0358)4388136
@@ -117,7 +116,7 @@ const Navbar = () => {
                            <DrawerClose asChild>
                               <Button
                                  asChild
-                                 className="w-full justify-start bg-[#25d366] text-white hover:bg-[#1ec95b]"
+                                 className="w-full justify-center bg-[#25d366] text-white hover:bg-[#1ec95b]"
                               >
                                  <a
                                     href="https://wa.me/5493584388136?text=Hola%2C%20me%20gustaría%20consultar%20sobre%20sus%20servicios"
@@ -130,11 +129,11 @@ const Navbar = () => {
                               </Button>
                            </DrawerClose>
                         </div>
-                        <DrawerFooter>
+                        {/* <DrawerFooter>
                            <DrawerClose asChild>
                               <Button variant="destructive">Cerrar</Button>
                            </DrawerClose>
-                        </DrawerFooter>
+                        </DrawerFooter> */}
                      </DrawerContent>
                   </Drawer>
                </div>

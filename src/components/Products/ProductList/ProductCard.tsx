@@ -13,7 +13,7 @@ const ProductCard = ({ id, nombre, imageUrls }: ProductCardProps) => {
    return (
       <div key={id} className="bg-white shadow-md rounded-lg overflow-hidden">
          {imageUrls.length > 0 && (
-            <div className="w-full h-[16rem] md:h-[20rem] overflow-hidden">
+            <div className="w-full h-[20rem] overflow-hidden">
                <img
                   className="w-full object-bottom object-cover"
                   src={imageUrls[0]}
