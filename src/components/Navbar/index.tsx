@@ -6,10 +6,7 @@ import {
    Drawer,
    DrawerClose,
    DrawerContent,
-   DrawerDescription,
    DrawerFooter,
-   DrawerHeader,
-   DrawerTitle,
    DrawerTrigger,
 } from "@/components/ui/drawer";
 
@@ -77,7 +74,6 @@ const Navbar = () => {
                         </Button>
                      </DrawerTrigger>
                      <DrawerContent>
-                       
                         <div className="p-4 flex flex-col gap-2">
                            <DrawerClose asChild>
                               <Link to="/nosotros">
