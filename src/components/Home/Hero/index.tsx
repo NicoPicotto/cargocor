@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Container from "@/components/Container";
+import { Link } from "react-router-dom";
+
 const Hero = () => {
    return (
       <section>
@@ -12,24 +14,28 @@ const Hero = () => {
             />
             <Container>
                <div className="flex flex-col gap-6">
-                  <h1 className="text-white text-5xl max-w-[24ch]">
+                  <h1 className="text-white text-3xl md:text-4xl lg:text-5xl max-w-[24ch]">
                      Ofrecemos productos de alta calidad y un servicio
                      personalizado, brindando soluciones innovadoras{" "}
                      <b>adaptadas a cada cliente</b>.
                   </h1>
                   <div className="flex gap-4 items-center">
-                     <Button variant="secondary" size="lg">
-                        Conocenos
-                     </Button>
-                     <Button variant="outline" size="lg">
-                        Contactanos
-                     </Button>
+                     <Link to="/nosotros">
+                        <Button variant="secondary" size="lg">
+                           Conocenos
+                        </Button>
+                     </Link>
+                     <Link to="/contacto">
+                        <Button variant="outline" size="lg">
+                           Contactanos
+                        </Button>
+                     </Link>
                   </div>
                </div>
             </Container>
          </div>
 
-         <div className="grid grid-cols-3 gap-0 h-[30%] overflow-hidden text-white">
+         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 h-[30%] overflow-hidden text-white">
             <div className="bg-[hsl(var(--secundario))] h-full col-span-1 w-full flex items-center justify-center gap-2 p-8">
                <img
                   src="/home/hero-1.svg"

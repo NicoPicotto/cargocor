@@ -40,7 +40,7 @@ const CategoryList = () => {
                   Categorías
                </h3>
             </div>
-            <div className="grid grid-cols-2 mt-6 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-6 gap-6">
                {categories.map((category, index) => (
                   <CategoryCard
                      key={index}

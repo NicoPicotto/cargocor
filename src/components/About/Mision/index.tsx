@@ -4,7 +4,7 @@ const Mision = () => {
    return (
       <section className="py-10">
          <Container>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                <div className="flex flex-col gap-4 items-center justify-center">
                   <img
                      src="/about/mision1.svg"

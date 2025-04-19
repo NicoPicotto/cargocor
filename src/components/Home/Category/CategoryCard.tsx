@@ -13,7 +13,7 @@ const CategoryCard = ({ name, description, image, url }: CategoryCardProps) => {
    return (
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
          <div className="w-full h-[21rem] overflow-hidden">
-            <img className="w-full object-bottom" src={image} alt={name} />
+            <img className="w-full h-full object-cover object-bottom" src={image} alt={name} />
          </div>
          <div className="flex flex-col gap-2 p-4">
             <p className="text-2xl font-bold">{name}</p>

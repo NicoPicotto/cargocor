@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById, fetchProducts } from "@/api/products";
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, ArrowLeft } from "lucide-react";
 import {
    Carousel,
    CarouselContent,
@@ -80,7 +80,7 @@ const ProductDetail = () => {
          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                <Carousel className="w-full">
-                  <CarouselContent className="relative w-full h-[550px] ml-0">
+                  <CarouselContent className="relative w-full md:h-[550px] ml-0">
                      {product.imageUrls.map((slide, index) => (
                         <CarouselItem
                            key={index}
@@ -114,15 +114,19 @@ const ProductDetail = () => {
                      {product.descripcion}
                   </p>
 
-                  <div className="flex items-center gap-2 mt-2">
-                     <Button asChild>
+                  <div className="flex flex-col md:flex-row items-center gap-2 mt-2">
+                     <Button asChild className="w-full md:w-fit">
                         <a href="tel:03584388136">
                            <Phone />
                            Contactar por este producto
                         </a>
                      </Button>
-                     <Link to="/productos">
-                        <Button variant="outline" className="text-primary">
+                     <Link to="/productos" className="w-full md:w-fit">
+                        <Button
+                           variant="outline"
+                           className="text-primary w-full"
+                        >
+                           <ArrowLeft />
                            Volver a ver más productos
                         </Button>
                      </Link>

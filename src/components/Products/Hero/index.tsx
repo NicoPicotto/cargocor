@@ -12,7 +12,7 @@ const Hero = () => {
             />
             <Container>
                <div className="flex w-full items-center justify-center">
-                  <h1 className="text-white text-5xl text-center max-w-[20ch]">
+                  <h1 className="text-white text-3xl md:text-4xl lg:text-5xl text-center max-w-[20ch]">
                      Conocé nuestra <b>amplia variedad</b> de productos.
                   </h1>
                </div>

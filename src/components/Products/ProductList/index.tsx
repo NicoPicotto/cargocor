@@ -5,7 +5,6 @@ import Container from "@/components/Container";
 import ProductCard from "./ProductCard";
 
 function ProductsData() {
-   // Usar TanStack Query para obtener y cachear los productos
    const {
       data: products = [],
       isLoading,
@@ -18,6 +17,15 @@ function ProductsData() {
    // Agrupar productos por categoría
    const productsByCategory = groupProductsByCategory(products);
 
+   const toKebabCase = (text: string) => {
+      return text
+         .toLowerCase()
+         .normalize("NFD")
+         .replace(/[\u0300-\u036f]/g, "")
+         .replace(/\s+/g, "-")
+         .replace(/[^\w-]+/g, "");
+   };
+
    return (
       <section className="py-10">
          <Container>
@@ -27,11 +35,15 @@ function ProductsData() {
                <>
                   {Object.entries(productsByCategory).map(
                      ([categoria, productos]) => (
-                        <div key={categoria} className="mb-12">
+                        <div
+                           key={categoria}
+                           id={toKebabCase(categoria)}
+                           className="mb-12"
+                        >
                            <h3 className="text-primary font-bold text-3xl border-l-[4px] border-primary pl-4 mb-6">
                               {categoria}
                            </h3>
-                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                               {productos.map((product) => (
                                  <ProductCard
                                     key={product.id}
