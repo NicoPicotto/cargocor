@@ -13,9 +13,9 @@ const ProductCard = ({ id, nombre, imageUrls }: ProductCardProps) => {
    return (
       <div key={id} className="bg-white shadow-md rounded-lg overflow-hidden">
          {imageUrls.length > 0 && (
-            <div className="w-full h-[20rem] overflow-hidden">
+            <div className="flex justify-center w-full h-[20rem] overflow-hidden">
                <img
-                  className="w-full object-bottom object-cover"
+                  className="h-full object-center object-cover"
                   src={imageUrls[0]}
                   alt={nombre}
                />

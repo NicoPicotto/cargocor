@@ -11,7 +11,7 @@ export function convertGoogleDriveUrl(driveUrl: string): string {
 
    if (match && match[1]) {
       const fileId = match[1];
-      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000&authuser=0`;
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000&authuser=1`;
    }
 
    return driveUrl;

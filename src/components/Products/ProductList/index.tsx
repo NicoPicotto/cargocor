@@ -43,7 +43,7 @@ function ProductsData() {
                            <h3 className="text-primary font-bold text-3xl border-l-[4px] border-primary pl-4 mb-6">
                               {categoria}
                            </h3>
-                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                               {productos.map((product) => (
                                  <ProductCard
                                     key={product.id}

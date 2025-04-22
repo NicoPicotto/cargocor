@@ -1,5 +1,4 @@
 // src/api/products.ts
-import { processImageUrls } from "@/utils/imageUtils";
 
 export interface Product {
    id: string;
@@ -34,13 +33,16 @@ export const fetchProducts = async (): Promise<Product[]> => {
    }
 
    const data = await response.json();
+   console.log(data);
 
    if (data.values && data.values.length > 0) {
       return data.values.map((row: any) => ({
          id: row[0] || "",
          nombre: row[1] || "",
          descripcion: row[2] || "",
-         imageUrls: processImageUrls(row[3] || ""),
+         imageUrls: row[3]
+            ? row[3].split(",").map((url: string) => url.trim())
+            : [],
          categoria: row[4] || "Sin categoría",
       }));
    }

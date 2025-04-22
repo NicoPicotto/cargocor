@@ -9,25 +9,25 @@ const categories = [
       url: "/productos#slip-sheets",
    },
    {
-      name: "Materiales de embalaje",
+      name: "Materiales de protección",
       description:
          "Asegurá la integridad de tus productos durante el almacenamiento y envío.",
       image: "/home/category2.webp",
-      url: "/productos#materiales-de-embalaje",
+      url: "/productos#materiales-de-proteccion",
    },
    {
-      name: "Soluciones de polietileno",
+      name: "Sistemas de sujeción y fijación",
       description:
          "Asegurá la integridad de las mercancías con productos hechos a medida.",
       image: "/home/category3.webp",
-      url: "/productos#soluciones-de-polietileno",
+      url: "/productos#sistemas-de-sujeccion-y-fijacion",
    },
    {
-      name: "Soluciones de cadena de frío",
+      name: "Control cadena de frio",
       description:
          "Asegurá la calidad y seguridad de los productos sensibles a la temperatura.",
       image: "/home/category4.webp",
-      url: "/productos#soluciones-de-cadena-de-frio",
+      url: "/productos#control-de-cadena-de-frio",
    },
 ];
 
