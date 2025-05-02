@@ -90,7 +90,7 @@ const ProductDetail = () => {
                               <img
                                  src={slide as string}
                                  alt={`Slide ${index}`}
-                                 className="h-full  object-cover"
+                                 className="h-full w-full  object-cover"
                               />
                            </div>
                         </CarouselItem>

@@ -21,8 +21,13 @@ const ProductCard = ({ id, nombre, imageUrls }: ProductCardProps) => {
                />
             </div>
          )}
+         <div className="w-full px-4 py-2">
+            {" "}
+            <div className="border-b border-gray-200 w-full"></div>
+         </div>
+
          <div className="flex flex-col gap-2 p-4">
-            <p className="text-2xl font-bold">{nombre}</p>
+            <p className="text-2xl font-semibold">{nombre}</p>
             <Link to={`/producto/${id}`} className="text-primary mt-2">
                <Button variant="default" size="lg" className="w-fit group">
                   Ver más

@@ -44,9 +44,9 @@ const Navbar = () => {
                {/* Botones de contacto - visible solo en desktop */}
                <div className="hidden md:flex items-center gap-2">
                   <Button asChild>
-                     <a href="tel:03584388136">
+                     <a href="tel:+5493584388136">
                         <Phone className="mr-2 h-4 w-4" />
-                        (0358)4388136
+                        +5493584388136
                      </a>
                   </Button>
                   <Button
@@ -104,12 +104,12 @@ const Navbar = () => {
                                  </Button>
                               </Link>
                            </DrawerClose>
-                           
+
                            <DrawerClose asChild>
                               <Button asChild className="w-full justify-center">
-                                 <a href="tel:03584388136">
+                                 <a href="tel:+5493584388136">
                                     <Phone className="mr-2 h-4 w-4" />
-                                    (0358)4388136
+                                    +549-358-4388136
                                  </a>
                               </Button>
                            </DrawerClose>
@@ -129,11 +129,6 @@ const Navbar = () => {
                               </Button>
                            </DrawerClose>
                         </div>
-                        {/* <DrawerFooter>
-                           <DrawerClose asChild>
-                              <Button variant="destructive">Cerrar</Button>
-                           </DrawerClose>
-                        </DrawerFooter> */}
                      </DrawerContent>
                   </Drawer>
                </div>

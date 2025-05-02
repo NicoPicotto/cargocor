@@ -4,11 +4,11 @@ const Hero = () => {
    return (
       <section>
          <div className="flex flex-col justify-center h-[70dvh] overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-primary/20 z-[-1]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-primary/40 z-[-1]"></div>
             <img
-               src="/home/hero.webp"
+               src="/home/products.webp"
                alt="Trabajador de industria trasaladando mercadería"
-               className="absolute top-0 object-top left-0 w-full h-full object-cover z-[-2]"
+               className="absolute bottom-0 object-center left-0 w-full h-full object-cover z-[-2]"
             />
             <Container>
                <div className="flex w-full items-center justify-center">

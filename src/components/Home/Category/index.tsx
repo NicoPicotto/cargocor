@@ -3,12 +3,6 @@ import CategoryCard from "./CategoryCard";
 
 const categories = [
    {
-      name: "Slip Sheets",
-      description: "Optimizá espacios, reducí costos y potenciá tus cargas.",
-      image: "/home/category1.webp",
-      url: "/productos#slip-sheets",
-   },
-   {
       name: "Materiales de protección",
       description:
          "Asegurá la integridad de tus productos durante el almacenamiento y envío.",
@@ -16,18 +10,24 @@ const categories = [
       url: "/productos#materiales-de-proteccion",
    },
    {
+      name: "Slip Sheets",
+      description: "Optimizá espacios, reducí costos y potenciá tus cargas.",
+      image: "/home/category1.webp",
+      url: "/productos#slip-sheets",
+   },
+   {
       name: "Sistemas de sujeción y fijación",
       description:
          "Asegurá la integridad de las mercancías con productos hechos a medida.",
       image: "/home/category3.webp",
-      url: "/productos#sistemas-de-sujeccion-y-fijacion",
+      url: "/productos#sistemas-de-sujecion-y-fijacion",
    },
    {
       name: "Control cadena de frio",
       description:
          "Asegurá la calidad y seguridad de los productos sensibles a la temperatura.",
       image: "/home/category4.webp",
-      url: "/productos#control-de-cadena-de-frio",
+      url: "/productos#control-cadena-de-frio",
    },
 ];
 

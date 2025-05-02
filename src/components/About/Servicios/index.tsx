@@ -25,7 +25,7 @@ const Servicios = () => {
                <div className="flex flex-col items-center flex-1 gap-4 p-6 justify-center">
                   <h3 className="text-2xl font-bold text-center">Calidad</h3>
                   <p className="text-lg md:max-w-[60%] text-center">
-                     Nos aseguramos de que tus productos se fabriquen, almacenen
+                     Nos aseguramos de que tus productos se almacenen
                      y transporten de forma segura, sin riesgo de daños. Por
                      eso, seleccionamos cada uno de nuestros productos con los
                      más altos estándares de calidad.

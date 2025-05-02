@@ -148,7 +148,7 @@ const Contact = () => {
          />
          <Container>
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:mt-20">
-               <div className="col-span-1 md:col-span-2 bg-white p-4 rounded-lg shadow-sm">
+               <div className="col-span-1 h-fit md:col-span-2 bg-white p-4 rounded-lg shadow-sm">
                   <h1 className="text-3xl font-bold mb-4">Contactanos</h1>
                   <div className="flex flex-col gap-4">
                      <div className="flex gap-2 items-center">
@@ -179,12 +179,6 @@ const Contact = () => {
                            Vía Mail a ventas@cargocor.com.ar
                         </a>
                      </div>
-
-                     <div className="border border-gray-200"></div>
-                     <p className="text-sm text-gray-500">
-                        Nuestro horario de atención de es de Lunes a Viernes de
-                        08:00 a 12:00 y de 16:00 a 20:00.
-                     </p>
                   </div>
                </div>
                <div className="col-span-1 md:col-span-4 bg-white p-4 rounded-lg shadow-sm">
